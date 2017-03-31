@@ -1,0 +1,5 @@
+if ($http_referer ~* hiveTest) {
+       proxy_pass http://hive_test:8080/$request_uri;
+#	   return 403;
+
+    }

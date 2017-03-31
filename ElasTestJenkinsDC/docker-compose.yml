@@ -1,0 +1,27 @@
+version: '3'
+services:
+  elastest_ci:
+    restart: always
+    build: 
+      context: .
+      args:
+        dockergroupid: ${DOCKER_GROUP_ID}
+        jenkins_opts: "--prefix=/elastest_ci"
+    image: gtunon/jenkins_elastest:beta
+    container_name: elastest_jenkins
+    volumes:
+      - elastest_jenkins_home:/var/jenkins_home
+      - /etc/localtime:/etc/localtime:ro
+      - shared_space:/home/ubuntu/shared_space
+      #docker volumes
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    #ports:
+    #  - "8082:8080"
+    #  - "50001:50000"
+
+volumes:
+  elastest_jenkins_home: {}
+  shared_space: {}
+

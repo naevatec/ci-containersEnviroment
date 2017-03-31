@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    restart: always
+    image: nginx:latest
+    container_name: nginx_container
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx_conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx_conf/conf.d:/etc/nginx/conf.d
+      - ./static-html-directory:/usr/share/nginx/html
+      - /var/log/nginx/log:/var/log/nginx_volume/log
+      - ./nginx_conf/letsencrypt:/etc/letsencrypt/configs/
+      #jenkins
+   #   - ../JenkinsDC/jenkins_home:/var/jenkins_home
+
+    networks:
+      - default
+      - jenkinsdc
+      - elastestjenkins
+      - connected_homes
+      - nexusdc
+
+networks:
+   jenkinsdc:
+      external:
+        name: jenkinsdc_default
+
+   elastestjenkins:
+     external:
+       name: elastestjenkinsdc_default
+
+   connected_homes:
+     external:
+       name: connectedhomesdc_default
+
+   nexusdc:
+     external:
+       name: nexusdc_default
+
+#volumes:
+#   jenkins_home:
+#     external:
+#       name: jenkinsdc_jenkins_home
+#  letsencrypt-nginx-proxy-companion:
+#    restart: always
+#    image: jrcs/letsencrypt-nginx-proxy-companion
+#    container_name: proxy_letsencrypt-nginx-proxy-companion
+#    volumes_from:
+#      - nginx-proxy
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock:ro
+#      - /data/letsencrypt-nginx-proxy-companion/certs/:/etc/nginx/certs:rw
+
+
