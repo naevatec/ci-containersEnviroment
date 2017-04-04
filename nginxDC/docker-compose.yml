@@ -19,23 +19,13 @@ services:
 
     networks:
       - default
-      - jenkinsdc
       - elastestjenkins
-      - connected_homes
       - nexusdc
 
 networks:
-   jenkinsdc:
-      external:
-        name: jenkinsdc_default
-
    elastestjenkins:
      external:
        name: elastestjenkinsdc_default
-
-   connected_homes:
-     external:
-       name: connectedhomesdc_default
 
    nexusdc:
      external:

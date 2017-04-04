@@ -6,13 +6,13 @@ services:
       context: .
       args:
         dockergroupid: ${DOCKER_GROUP_ID}
-        jenkins_opts: "--prefix=/elastest_ci"
+        jenkins_opts: "--prefix=/jenkins"
     image: gtunon/jenkins_elastest:beta
     container_name: elastest_jenkins
     volumes:
-      - elastest_jenkins_home:/var/jenkins_home
+      - /opt/containers/jenkins:/var/jenkins_home
       - /etc/localtime:/etc/localtime:ro
-      - shared_space:/home/ubuntu/shared_space
+      # - shared_space:/home/ubuntu/shared_space
       #docker volumes
       - /usr/bin/docker:/usr/bin/docker
       - /var/run/docker.sock:/var/run/docker.sock
@@ -23,5 +23,5 @@ services:
 
 volumes:
   elastest_jenkins_home: {}
-  shared_space: {}
+  #shared_space: {}
 

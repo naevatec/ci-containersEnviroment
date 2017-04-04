@@ -18,7 +18,6 @@ if [ "$1" = 'bin/nexus' ]; then
 
   mkdir -p "${NEXUS_DATA}/etc" "${NEXUS_DATA}/log" "${NEXUS_DATA}/tmp" "${SONATYPE_WORK}"
   ln -s "${NEXUS_DATA}" "${SONATYPE_WORK}/nexus3"
-  chown -R nexus:docker "${NEXUS_DATA}" "${SONATYPE_WORK}"
 
 fi
 
