@@ -13,7 +13,7 @@ services:
       - ./nginx_conf/conf.d:/etc/nginx/conf.d
       - ./static-html-directory:/usr/share/nginx/html
       - /var/log/nginx/log:/var/log/nginx_volume/log
-      - ./nginx_conf/letsencrypt:/etc/letsencrypt/configs/
+      - /etc/letsencrypt:/etc/letsencrypt
       #jenkins
    #   - ../JenkinsDC/jenkins_home:/var/jenkins_home
 
@@ -21,6 +21,7 @@ services:
       - default
       - elastestjenkins
       - nexusdc
+      - userregistry
 
 networks:
    elastestjenkins:
@@ -30,6 +31,10 @@ networks:
    nexusdc:
      external:
        name: nexusdc_default
+
+   userregistry:
+     external: 
+       name: privateuserregistry_default
 
 #volumes:
 #   jenkins_home:

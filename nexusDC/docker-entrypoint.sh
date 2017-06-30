@@ -6,7 +6,7 @@ if [ "$1" = 'bin/nexus' ]; then
   pwd
   echo "NEXUS_HOME=${NEXUS_HOME} \n SONATYPE_WORK=${SONATYPE_WORK} \n NEXUS_DATA=${NEXUS_DATA}"
 
-  sed -i 's:^#*[ \t]*nexus-context-path.*:nexus-context-path=/archiva:g' ${NEXUS_HOME}/etc/nexus-default.properties
+  sed -i 's:^#*[ \t]*nexus-context-path.*:nexus-context-path=/nexus:g' ${NEXUS_HOME}/etc/nexus-default.properties
   sed \
     -e "s|-Xms.*|-Xms${JAVA_MIN_MEM}|g" \
     -e "s|-Xmx.*|-Xmx${JAVA_MAX_MEM}|g" \

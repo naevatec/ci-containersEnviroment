@@ -4,7 +4,8 @@
 # executed before over the same console with ". ./exp_docker_groupid.sh" and 
 # passed as a parameter of the build (dockergroupid)
 
-FROM jenkins:latest
+FROM jenkins:latest 
+
 ##########################
 #Arguments
 ##########################
@@ -13,6 +14,9 @@ ARG dockergroupid
 ARG jenkins_opts
 
 USER root 
+
+RUN apt-get update && apt-get install -y python3-pip \
+    && pip3 install awscli
 
 RUN mkdir /var/log/jenkins &&\
     mkdir /var/cache/jenkins 
