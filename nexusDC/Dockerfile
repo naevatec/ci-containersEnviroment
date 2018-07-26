@@ -24,7 +24,7 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 # configure nexus runtime
 ENV SONATYPE_DIR=/opt/sonatype
-ENV NEXUS_VERSION="3.2.0-01" \
+ENV NEXUS_VERSION="3.13.0-01" \
     NEXUS_HOME="${SONATYPE_DIR}/nexus" \
     NEXUS_DATA="/nexus-data" \
     SONATYPE_WORK=${SONATYPE_DIR}/sonatype-work \
