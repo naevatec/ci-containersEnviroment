@@ -34,7 +34,7 @@ networks:
 
    userregistry:
      external: 
-       name: privateuserregistry_default
+       name: private-user-registry_default
 
 #volumes:
 #   jenkins_home:
