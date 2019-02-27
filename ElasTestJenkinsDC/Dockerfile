@@ -4,8 +4,8 @@
 # executed before over the same console with ". ./exp_docker_groupid.sh" and 
 # passed as a parameter of the build (dockergroupid)
 
-FROM jenkins/jenkins:2.157 
-#latest on 10/01/2019
+FROM jenkins/jenkins:2.166 
+#latest on 27/02/2019
 
 ##########################
 #Arguments
