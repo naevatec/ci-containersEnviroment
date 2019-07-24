@@ -3,7 +3,7 @@ version: '3'
 services:
   nginx-proxy:
     restart: always
-    image: nginx:1.15.10 #stable version on 11/04/2019
+    image: nginx:1.17.2 #stable version on 24/07/2019
     container_name: nginx_container
     ports:
       - 80:80
